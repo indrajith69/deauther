@@ -106,6 +106,8 @@ class app(object):
 		return 0
 
 	def add_accesspoint(self,data):
+		ssid = data[0]
+		all_ssids = [self.devices.item(no,'values')[0] for no in self.devices.get_children()]
 		if not len(all_ssids):
 			self.devices.insert(parent='',index=0,iid=0,values=data)
 			return
